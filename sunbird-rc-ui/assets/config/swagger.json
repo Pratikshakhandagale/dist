@@ -1,0 +1,493 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "Sunbird registry and credential api (SunbirdRC)",
+        "title": "Sunbird Registry and Credential",
+        "version": "1.0.0"
+    },
+    "host": "ndear.xiv.in",
+    "basePath": "/",
+    "paths": {
+        "/api/v1/Issuer/{entityId}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "description": "Id of the Issuer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Issuer new update",
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "description": "Id of the Issuer",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/docs/Issuer.json": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/sign": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/search": {
+            "post": {
+                "description": "Create new Issuer",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "properties": {
+                                "offset": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "default": 0
+                                },
+                                "limit": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "default": 0
+                                },
+                                "filters": {
+                                    "type": "object",
+                                    "description": "Ex: (field_path): $.educationDetails.name",
+                                    "properties": {
+                                        "field_path": {
+                                            "type": "object",
+                                            "description": "operators can be gte, lte, contains, gt, lt, eq, between, or, startsWith, endsWith, notContains, notStartsWith, notEndsWith",
+                                            "properties": {
+                                                "operators": {
+                                                    "type": "string",
+                                                    "example": "name",
+                                                    "description": "Search searchField"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Issuer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/invite": {
+            "post": {
+                "description": "Create new Issuer",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new Issuer",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Issuer"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/{entityId}/{property}/{propertyId}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "description": "Id of the Issuer",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Schema property field",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "Id of schema property field",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": " new update",
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "description": "Id of the Issuer",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Schema property field",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "Id of schema property field",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "key1": {
+                                    "type": "string",
+                                    "default": "val1"
+                                },
+                                "send": {
+                                    "type": "boolean",
+                                    "description": "If the required property needs to be sent for attestation"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/{entityId}/{property}": {
+            "post": {
+                "description": "Create new ",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "key1": {
+                                    "type": "string",
+                                    "default": "val1"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/Issuer/{entityId}/{property}/{propertyId}/send": {
+            "post": {
+                "description": "Create new ",
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "description": "Id of the Issuer",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Schema property field",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "Id of schema property field",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Issuer": {
+            "type": "object",
+            "title": "Issuer",
+            "required": [],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Issuer/Organisation Name"
+                },
+                "logoUrl": {
+                    "type": "string",
+                    "title": "Logo url"
+                },
+                "websiteUrl": {
+                    "type": "string",
+                    "title": "Website url"
+                },
+                "sectorType": {
+                    "type": "string",
+                    "enum": [
+                        "Education"
+                    ],
+                    "title": "Sector Type"
+                },
+                "accountDetails": {
+                    "description": "Enter Email id or Phone number that you would use for login",
+                    "title": "Account Details",
+                    "type": "object",
+                    "properties": {
+                        "userId": {
+                            "type": "string",
+                            "title": "Email Id or Mobile number"
+                        }
+                    }
+                },
+                "contactDetails": {
+                    "type": "object",
+                    "description": "Enter administrator details",
+                    "title": "Contact Details",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Contact Name"
+                        },
+                        "mobile": {
+                            "type": "string",
+                            "title": "Mobile"
+                        },
+                        "email": {
+                            "type": "string",
+                            "title": "Email"
+                        }
+                    }
+                },
+                "schemas": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "schemaOsid": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "IssuerOsConfig": {
+            "osComment": [],
+            "privateFields": [],
+            "signedFields": [],
+            "indexFields": [],
+            "uniqueIndexFields": [],
+            "systemFields": [
+                "osCreatedAt",
+                "osUpdatedAt",
+                "osCreatedBy",
+                "osUpdatedBy"
+            ],
+            "roles": [
+                "anonymous"
+            ],
+            "inviteRoles": [
+                "anonymous"
+            ],
+            "ownershipAttributes": [
+                {
+                    "email": "/contactDetails/email",
+                    "mobile": "/contactDetails/mobile",
+                    "userId": "/contactDetails/mobile"
+                }
+            ]
+        },
+        "AccountDetails": {
+            "title": "Enter Email id or Phone number that you would use for login",
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string",
+                    "title": "Email Id or Mobile number"
+                }
+            }
+        },
+        "ContactDetails": {
+            "type": "object",
+            "description": "Enter administrator details",
+            "title": "Contact Details",
+            "required": [],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Contact Name"
+                },
+                "email": {
+                    "type": "string",
+                    "title": "Email"
+                },
+                "mobile": {
+                    "type": "string",
+                    "title": "Mobile"
+                }
+            }
+        },
+        "Document": {
+            "title": "Add Document",
+            "type": "object",
+            "properties": {
+                "document": {
+                    "enum": [
+                        "Proof of work",
+                        "Proof of skill",
+                        "Proof of Education"
+                        ],
+                    "title": "Select Document"
+                }
+            }
+        }
+    }
+}
