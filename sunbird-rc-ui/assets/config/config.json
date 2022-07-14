@@ -37,8 +37,8 @@
         "linkColor": "#443DF6",
         "secondaryBtnBgColor": "#e0edf5"
     },
-    "baseUrl": "http://localhost:4200/registry/api/v1",
-    "schemaUrl": "http://localhost:4200/registry/api/docs/swagger.json",
+    "baseUrl": "https://sunbird-certificate-demo.xiv.in/registry/api/v1",
+    "schemaUrl": "https://sunbird-certificate-demo.xiv.in/registry/api/docs/swagger.json",
     "title": "Issuance Portal",
     "footerText": "Issuance Portal",
     "languages": [
